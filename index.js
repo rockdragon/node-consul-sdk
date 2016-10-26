@@ -2,9 +2,9 @@
 
   var path = require('path');
   var fs = require('fs');
-  var debug = require('debug')('consul-sdk');
   var lib = require('./libs/lib')
-  var error = console.error;
+  var error = lib.error;
+  var debug = lib.debug;
   var rootDir = path.resolve('./');
   var confDir = path.resolve(rootDir, 'consul.json');
 
@@ -31,25 +31,12 @@
     error(err);
   });
 
-  lib.exitHandler(function (options, err) {
-    debug('exit handler options:', options);
-    if (err) error(err);
-
-    if (options.exit === true) {
-      debug('SIGINT & uncaughtException !!!!!!!!!!!!!!!!!!!');
-
-      consul.agent.service.deregister({
-        id: conf.name
-      }).catch(function (err) {
-        error(err);
-      });
-
-      setTimeout(function() {
-        process.exit();
-      }, 500);
-    } else if (options.cleanup === true) {
-      debug('process.exit() !!!!!!!!!!!!!!!!!!!');
-    }
+  lib.registerExitHandler(function () {
+    consul.agent.service.deregister({
+      id: conf.name
+    }).catch(function (err) {
+      error(err);
+    });
   });
 
 })();
