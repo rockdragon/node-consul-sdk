@@ -3,8 +3,6 @@ var error     = console.error;
 var debug     = require('debug')('consul-sdk');
 
 function registerExitHandler (callback) {
-  // attach user callback to the process event emitter
-  // if no callback, it will still exit gracefully on Ctrl-C
   function exit(signal) {
     callback = callback || function() {};
     callback();
@@ -13,7 +11,6 @@ function registerExitHandler (callback) {
     }, 500);
   }
 
-  // do app specific cleaning before exiting
   process.on('exit', function () {
     debug('process.on(exit) !!!!!!!!')
   });
@@ -23,13 +20,11 @@ function registerExitHandler (callback) {
     exit(-1);
   });
 
-  // catch ctrl+c event and exit normally
   process.on('SIGINT', function () {
     debug('Ctrl-C...');
     exit(2);
   });
 
-  //catch uncaught exceptions, trace, then exit normally
   process.on('uncaughtException', function(e) {
     debug('Uncaught Exception...');
     error(e.stack);

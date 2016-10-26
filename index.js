@@ -17,8 +17,8 @@
   debug('content of consul.json:', conf);
 
   var consul = require('consul')({
-    host: conf.serverHost,
-    port: conf.serverPort,
+    host: conf.serverHost || 'localhost',
+    port: conf.serverPort || 8500,
     secure: conf.secure,
     promisify: lib.fromCallback
   });
