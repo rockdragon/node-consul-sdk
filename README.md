@@ -29,8 +29,8 @@ yarn add consul-sdk
 
 | 字段        |     意义     |
 | -----------| ---------:|
-|serverHost | consul服务地址（选填，默认值为localhost)|
-|serverPort |consul服务端口（选填，默认值为8500) |
+|serverHost | consul agent地址（选填，默认值为localhost)|
+|serverPort |consul agent端口（选填，默认值为8500) |
 |secure | 是否使用安全连接（选填，默认值为false) |
 |name |服务名称 |
 |host |服务所在的IP地址 |
