@@ -53,7 +53,7 @@ function fromCallback(fn) {
   });
 };
 
-module.exports.exitHandler = exitHandler;
+module.exports.registerExitHandler = registerExitHandler;
 module.exports.fromCallback = fromCallback;
 module.exports.error = error;
 module.exports.debug = debug;
