@@ -4,5 +4,5 @@
   "secure": false,
   "name": "node-consul-sdk",
   "host": "127.0.0.1",
-  "port": "8020"
+  "port": 8020
 }
