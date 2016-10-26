@@ -36,15 +36,19 @@
     if (err) error(err);
 
     if (options.exit === true) {
-      debug('SIGINT & uncaughtException !!!!!!!!!!!!!!!!!!!')
-      process.exit()
-    } else if (options.cleanup === true) {
-      debug('exit !!!!!!!!!!!!!!!!!!!')
+      debug('SIGINT & uncaughtException !!!!!!!!!!!!!!!!!!!');
+
       consul.agent.service.deregister({
         id: conf.name
       }).catch(function (err) {
         error(err);
       });
+
+      setTimeout(function() {
+        process.exit();
+      }, 500);
+    } else if (options.cleanup === true) {
+      debug('process.exit() !!!!!!!!!!!!!!!!!!!');
     }
   });
 
