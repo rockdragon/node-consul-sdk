@@ -26,6 +26,7 @@ yarn add consul-sdk
 }
 ```
 配置说明：
+
 | 字段        |     意义     |
 | -----------| ---------:|
 |serverHost | consul服务地址|
