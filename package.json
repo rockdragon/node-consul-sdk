@@ -1,6 +1,6 @@
 {
   "name": "consul-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A consul SDK based on node-consul",
   "main": "index.js",
   "scripts": {
