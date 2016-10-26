@@ -19,7 +19,7 @@
   var consul = require('consul')({
     host: conf.serverHost || 'localhost',
     port: conf.serverPort || 8500,
-    secure: conf.secure,
+    secure: conf.secure || false,
     promisify: lib.fromCallback
   });
 
