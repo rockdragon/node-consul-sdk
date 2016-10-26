@@ -1,6 +1,8 @@
 {
-  "server": "http://192.168.7.5:8500",
-  "name": "my service",
+  "serverHost": "192.168.7.5",
+  "serverPort": 8500,
+  "secure": false,
+  "name": "node-consul-sdk",
   "host": "127.0.0.1",
   "port": "8020"
 }

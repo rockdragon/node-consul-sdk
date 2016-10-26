@@ -80,4 +80,5 @@ out/
 
 node_modules
 
+/consul.json
 
