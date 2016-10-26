@@ -32,7 +32,9 @@
 
   lib.exitHandler(function () {
     debug('EXIT!!!!!!!!!!!!!!!!!!!');
-    consul.agent.service.deregister(conf.name).catch(function (err) {
+    consul.agent.service.deregister({
+      id: conf.name
+    }).catch(function (err) {
       error(err);
     });
   });
