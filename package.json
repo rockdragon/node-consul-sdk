@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A consul SDK based on node-consul",
   "main": "index.js",
+  "scripts": {
+    "debug": "DEBUG=consul-sdk node ./index.js",
+    "publish": "git push && npm publish",
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/rockdragon/node-consul-sdk.git"
