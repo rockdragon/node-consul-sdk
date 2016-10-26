@@ -1,4 +1,5 @@
 (function () {
+
   var path = require('path');
   var fs = require('fs');
   var debug = require('debug')('consul-sdk');
@@ -30,12 +31,21 @@
     error(err);
   });
 
-  lib.exitHandler(function () {
-    debug('EXIT!!!!!!!!!!!!!!!!!!!');
-    consul.agent.service.deregister({
-      id: conf.name
-    }).catch(function (err) {
-      error(err);
-    });
+  lib.exitHandler(function (options, err) {
+    debug('exit handler options:', options);
+    if (err) error(err);
+
+    if (options.exit === true) {
+      debug('SIGINT & uncaughtException !!!!!!!!!!!!!!!!!!!')
+      process.exit()
+    } else if (options.cleanup === true) {
+      debug('exit !!!!!!!!!!!!!!!!!!!')
+      consul.agent.service.deregister({
+        id: conf.name
+      }).catch(function (err) {
+        error(err);
+      });
+    }
   });
+
 })();

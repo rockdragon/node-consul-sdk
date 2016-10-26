@@ -1,9 +1,11 @@
 var Bluebird = require('bluebird');
 
 function exitHandler(fn) {
-  process.on('exit', fn.bind(null));
-  process.on('SIGINT', fn.bind(null));
-  process.on('uncaughtException', fn.bind(null));
+  process.on('exit', fn.bind(null, { cleanup: true }));
+  process.on('SIGINT', fn.bind(null, { exit: true }));
+  process.on('uncaughtException', function (err) {
+    fn.bind(null, { exit: true }, err)
+  });
 };
 
 function fromCallback(fn) {
