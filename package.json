@@ -1,0 +1,20 @@
+{
+  "name": "consul-sdk",
+  "version": "1.0.0",
+  "description": "A consul SDK based on node-consul",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rockdragon/node-consul-sdk.git"
+  },
+  "keywords": [
+    "consul",
+    "sdk"
+  ],
+  "author": "Mo Ye <moyerock@gmail.com> (http://www.moye.me/)",
+  "license": "MIT",
+  "dependencies": {
+    "consul": "^0.27.0",
+    "debug": "^2.2.0"
+  }
+}
