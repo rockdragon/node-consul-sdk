@@ -2,6 +2,8 @@
 A succinct Consul SDK based on [node-consul](https://www.npmjs.com/package/consul)   
 
 ## 使用
+在你的服务目录中安装配置并引用consul-sdk，需要三步：
+
 #### 1. 安装
 - npm方式：
 ```shell
