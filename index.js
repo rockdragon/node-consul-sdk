@@ -1,10 +1,10 @@
 (function () {
 
-  var path = require('path');
-  var fs = require('fs');
-  var lib = require('./libs/lib')
-  var error = lib.error;
-  var debug = lib.debug;
+  var path    = require('path');
+  var fs      = require('fs');
+  var lib     = require('./libs/lib')
+  var error   = lib.error;
+  var debug   = lib.debug;
   var rootDir = path.resolve('./');
   var confDir = path.resolve(rootDir, 'consul.json');
 
